@@ -4,7 +4,7 @@
   height: 380rpx;
 }
 
-.sliders image {
+.sliders navigator, .sliders image {
   width: 100%;
   height: 100%;
 }
