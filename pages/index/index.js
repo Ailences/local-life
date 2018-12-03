@@ -1,4 +1,6 @@
 // pages/index/index.js
+// 导入请求函数
+const fetch = require('../../utils/fetch.js')
 Page({
 
   /**
@@ -13,23 +15,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    wx.request({
-      url: 'https://locally.uieee.com/slides',
-      success: res => {
-        // console.log(res)
-        this.setData({
-          slides: res.data
-        })
-      }
+    fetch('slides').then(res => {
+      // console.log(res)
+      this.setData({
+        slides: res.data
+      })
     })
-    wx.request({
-      url: 'https://locally.uieee.com/categories',
-      success: res => {
-        console.log(res)
-        this.setData({
-          categories: res.data
-        })
-      }
+    fetch('categories').then(res => {
+      this.setData({
+        categories: res.data
+      })
     })
   },
 

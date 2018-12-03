@@ -1,16 +1,19 @@
 <!-- 轮播图区域 -->
 <swiper class='sliders'>
   <swiper-item wx:for="{{slides}}" wx:key="id">
-    <image src='{{item.image}}' mode='aspectFill' />
+    <navigator wx:if="{{ item.link }}" url='{{ item.link }}'>
+      <image src='{{item.image}}' mode='aspectFill' />
+    </navigator>
+    <image wx:slse src='{{item.image}}' mode='aspectFill' />
   </swiper-item>
 </swiper>
 
 <!-- 九宫格区域 -->
 <view class='grids'>
-  <view class='item' wx:for='{{categories}}' wx:key="id">
+  <navigator url='/pages/list/list?cat={{ item.id }}' class='item' wx:for='{{categories}}' wx:key="id">
     <image src='{{item.icon}}' />
     <text>{{item.name}}</text>
-  </view>
+  </navigator>
 </view>
 
 <!-- 链接区域 -->
